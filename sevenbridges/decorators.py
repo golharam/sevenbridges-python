@@ -45,7 +45,7 @@ def retry(retry_count):
             for backoff in range(retry_count):
                 try:
                     return f(*args, **kwargs)
-                except Exception as e:
+                except:
                     time.sleep(2 ** backoff)
             else:
                 raise SbgError('{}: failed to complete: {}'.format(
